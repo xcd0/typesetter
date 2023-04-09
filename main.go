@@ -110,7 +110,7 @@ func main() {
 			}
 		}
 		// 12月31日のような日付文字列の数字を１文字の幅に2文字入れる。
-		t = rmonth.ReplaceAllString(t, "")
+		//t = rmonth.ReplaceAllString(t, "")
 		output += t
 	}
 	/*
