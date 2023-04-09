@@ -1,5 +1,6 @@
 name: goreleaser
 
+on: push
 #on:
 #  push:
 #    # run only against tags
