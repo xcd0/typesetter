@@ -16,6 +16,12 @@ jobs:
   goreleaser:
     runs-on: ubuntu-latest
     steps:
+      - name: Set current datetime as env variable
+        env:
+          TZ: 'Asia/Tokyo' # タイムゾーン指定
+        run: echo "CURRENT_DATETIME=$(date +'%Y-%m-%d.%H:%M:%S')" >> $GITHUB_ENV
+      - name: Show current datetime
+        run: echo ${{ env.CURRENT_DATETIME }}
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
