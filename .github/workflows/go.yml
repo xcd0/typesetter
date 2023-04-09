@@ -19,7 +19,7 @@ jobs:
       - name: Set current datetime as env variable
         env:
           TZ: 'Asia/Tokyo' # タイムゾーン指定
-        run: echo "CURRENT_DATETIME=$(date +'%Y-%m-%d.%H:%M:%S')" >> $GITHUB_ENV
+        run: echo "CURRENT_DATETIME=$(date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
       - name: Show current datetime
         run: echo ${{ env.CURRENT_DATETIME }}
       - uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
       #- run: git fetch --force --tags
       - run: git fetch --force --tags
       - name: Show current datetime
-        run: git tag v${{ env.CURRENT_DATETIME }}_{{ .ShortCommit }}
+        run: git tag draft_${{ env.CURRENT_DATETIME }}
       - uses: actions/setup-go@v4
         with:
           go-version: stable
