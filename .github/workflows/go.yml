@@ -27,8 +27,10 @@ jobs:
           fetch-depth: 0
       #- run: git fetch --force --tags
       - run: git fetch --force --tags
-      - name: Show current datetime
+      - name: create tag
         run: git tag v0.0.${{ env.CURRENT_DATETIME }}
+      - name: push tag
+        run: git push origin v0.0.${{ env.CURRENT_DATETIME }}
       - uses: actions/setup-go@v4
         with:
           go-version: stable
