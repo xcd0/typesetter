@@ -53,7 +53,8 @@ archives:
       {{- title .Os }}_
       {{- if eq .Arch "amd64" }}amd64
       {{- else if and (eq .Arch "arm") (eq .Arm "6") }}armv6l
-      {{- else }}{{ .Arch }}{{ end }}
+      {{- else }}{{ .Arch }}{{ end }}_
+      {{ .ShortCommit }}
     # use zip for windows archives
     format_overrides:
     - goos: windows
